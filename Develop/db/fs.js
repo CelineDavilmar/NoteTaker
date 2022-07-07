@@ -30,13 +30,13 @@ router.get("*", function (req, res) {
 
 router.get("/db.json", function (req, res) {
     res
-        .getNotes()
+        .getNotes(req.body)
         .then(notes => res.json(notes))
         .catch(err => res.status(500).json(err));
 });
 
 router.post("/notes", (req, res) => {
-    store
+    res
         .addNote(req.body)
         .then((note) => res.json(note))
         .catch(err => res.status(500).json(err));
