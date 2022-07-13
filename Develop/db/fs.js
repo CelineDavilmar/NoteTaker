@@ -28,11 +28,6 @@ router.get("*", function (req, res) {
 //GET / api / notes should read the db.json file and return all saved notes as JSON.
 //POST / api / notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client.You'll need to find a way to give each note a unique id when it's saved(look into npm packages that could do this for you). */
 
-function addNote(title, description) {
-    Note.push(title = req.Note.title, description = req.Note.body)
-    req.id = id.uniqid
-}
-
 router.get("/api/notes", (req, res) => {
     res
         .getNotes(req.body)
@@ -40,6 +35,10 @@ router.get("/api/notes", (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
+function addNote(title, description) {
+    Note.push(title = req.Note.title, description = req.Note.body)
+    req.id = id.uniqid
+}
 
 router.post("api/notes", (req, res) => {
     const Note = new Notes({})
