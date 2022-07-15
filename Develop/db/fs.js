@@ -1,5 +1,7 @@
 const fs = require('fs');
-import uniqid from 'uniqid';
+const path = require('path');
+const router = require('express').Router();
+const { v4: uuidv4 } = require('uuid')
 
 fs.readFile('./public/notes.html', function get(err, data) {
     if (err) {
@@ -28,7 +30,7 @@ router.get("*", function (req, res) {
 //GET / api / notes should read the db.json file and return all saved notes as JSON.
 //POST / api / notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client.You'll need to find a way to give each note a unique id when it's saved(look into npm packages that could do this for you). */
 
-router.get("/api/notes", (req, res) => {
+app.get("/api/notes", (req, res) => {
     res
         .getNotes(req.body)
         .then(note => res.json(note))
@@ -40,15 +42,19 @@ function addNote(title, description) {
     req.id = id.uniqid
 }
 
-router.post("api/notes", (req, res) => {
-    const Note = new Notes({})
+app.post("api/notes", (req, res) => {
 
-    Note.title = req.body.title
-    Note.description = req.body.description
-
+    var title = req.body.title
+    var description = req.body.description
+    const Note = {
+        title,
+        description,
+        id: uuidv4()
+    }
     res
     addNote(req.Note.title, req.Note.description)
         .then((note) => res.json(note))
         .catch(err => res.status(500).json(err));
 });
 
+module.exports = router;
