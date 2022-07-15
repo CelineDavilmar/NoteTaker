@@ -28,17 +28,12 @@ body {
   resize: none;
   height: calc(100% - 63px);
   padding-top: 15px;
-  width: 77%;
-  border-top: none;
 }
 
 .note-title {
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
-  width: 77%;
-  border-bottom: none;
-  border-width: thin;
 }
 
 .note-title:read-only,
@@ -80,9 +75,4 @@ body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
-}
-
-.col-8 {
-  margin-top: 8%;
-  height: 80%;
 }
