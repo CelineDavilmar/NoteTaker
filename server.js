@@ -1,10 +1,6 @@
-
-//const router = require('');
 const express = require('express');
-//const path = require('path');
-//const session = require('express-session');
-const router = require('./Develop/db/fs');
-const exphbs = require('express-handlebars');
+const apirouter = require('./db/fs2');
+const htmlrouter = require('./db/htmlroute');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,5 +9,9 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
-app.use('/api/notes', router);
-app.use('/notes', router);
+app.use('/api/notes', apirouter);
+app.use('/', htmlrouter);
+
+app.listen(PORT, () => {
+    console.log("app listening!");
+})
