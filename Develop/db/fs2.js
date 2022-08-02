@@ -28,6 +28,7 @@ router.get("/api/notes", (req, res) => {
         .getNotes(req.body)
         .then(note => res.json(note))
         .catch(err => res.status(500).json(err));
+    readFile();
 });
 
 function addNote(title, description) {
@@ -48,6 +49,7 @@ router.post("api/notes", (req, res) => {
     addNote(req.Note.title, req.Note.description)
         .then((note) => res.json(note))
         .catch(err => res.status(500).json(err));
+    writeFile();
 });
 
 module.exports = router;

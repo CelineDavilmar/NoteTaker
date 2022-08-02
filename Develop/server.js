@@ -11,3 +11,7 @@ app.use(express.json())
 
 app.use('/api/notes', apirouter);
 app.use('/', htmlrouter);
+
+app.listen(PORT, () => {
+    console.log("app listening!");
+})
