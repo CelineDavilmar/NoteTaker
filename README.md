@@ -8,3 +8,5 @@
     CSS
 
 # Screenshot of Project
+
+<image src="/public/assets/pic.png" />
