@@ -1,6 +1,6 @@
 const express = require('express');
-const apirouter = require('./Develop/db/fs2');
-const htmlrouter = require('./Develop/db/htmlroute');
+const apirouter = require('./db/fs2');
+const htmlrouter = require('./db/htmlroute');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
