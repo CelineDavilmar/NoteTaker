@@ -15,7 +15,7 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
 
     modifier
-        .createNewNote(req.body.title, req.body.description)
+        .addNote(req.body.title, req.body.description)
         .then((note) => res.json(note))
         .catch(err => res.status(500).json(err));
 });
